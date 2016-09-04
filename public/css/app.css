@@ -1,0 +1,48 @@
+/*
+	SELECTORES CSS3
+	clases "."
+	id "#"
+	etiqueta "nombre de etiqueta--->ul, div, p....etc"
+
+*/
+
+body{
+	background-image: url("/images/wall.png");
+	background-size: cover;
+}
+
+header{
+	
+	background-size: cover;
+	border-width: 5px;
+	border-radius: 2px 2px 45px 45px;
+	border-style: outset;
+	background-color: #051638;
+	height: 100px;
+}
+.div-index{
+	background-color: #fafafa;
+	border-width: 5px;
+	border-radius: 45px 45px 45px 45px;
+	border-style: inset; 
+	margin-top: 70px;
+	margin-right: 500px;
+	padding-right: 20px; 
+	padding-left: 20px;
+	width: 350px;
+
+}
+
+h2{
+	color: #1565c0;
+}
+
+.imgheader{
+	width: 1280px;
+	height: 200px;
+}
+
+.error{
+	color: red;
+ 	padding: 3px;
+}
