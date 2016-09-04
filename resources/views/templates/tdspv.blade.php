@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+@yield('styles')
+
 <title>DSPVC</title>
 	<link rel="stylesheet" type="text/css" href="/css/materialize.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">

@@ -1,5 +1,14 @@
 <?php session_start() ?> 
 @extends('templates.tdspv')
+@section('styles')
+<style>
+          .thumb {
+            height: 150px;
+            border: 1px solid #000;
+            margin: 10px 5px 0 0;
+          }
+        </style>
+@stop
 @section('navegacion')
   <div class="row">
     <div id="navegacion" class="col s12">
@@ -33,14 +42,14 @@
 	            <!--img src="@{{img}}" v-if="img"-->
 	            <div class="input-field col s1"></div>
 	            <div class="input-field col s10">
-	            	<div class="file-field input-field">
-				      <div class="btn">
-				        <span>Imagen</span>
-				        <input type="file" name="image">
-				      </div>
-				      <div class="file-path-wrapper">
-				        <input class="file-path validate" type="text" v-model="img">
-				      </div>
+	            	<div class="center" >
+	            	<h6>Fotografía</h6>
+				      	<output id="list"></output>
+				      	<br />
+				        <input type="file" id="files" name="files[]" />
+        				
+        				
+				      
     				</div>
 	            </div>
 	            </div>
@@ -139,12 +148,30 @@
 
 @stop
 @section('script')
-<script type="text/javascript">
-	new Vue({
-	el: 'body',
-	data: {
-		img: "",
-	}
-});
-</script>
+<script>
+              function archivo(evt) {
+                  var files = evt.target.files; // FileList object
+             
+                  // Obtenemos la imagen del campo "file".
+                  for (var i = 0, f; f = files[i]; i++) {
+                    //Solo admitimos imágenes.
+                    if (!f.type.match('image.*')) {
+                        continue;
+                    }
+             
+                    var reader = new FileReader();
+             
+                    reader.onload = (function(theFile) {
+                        return function(e) {
+                          // Insertamos la imagen
+                         document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
+                        };
+                    })(f);
+             
+                    reader.readAsDataURL(f);
+                  }
+              }
+             
+              document.getElementById('files').addEventListener('change', archivo, false);
+      </script>
 @stop
